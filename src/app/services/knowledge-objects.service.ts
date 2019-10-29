@@ -12,8 +12,7 @@ export class KnowledgeObjectsService {
 
   constructor(private http: HttpClient) {}
 
-  getItems(page: number) {
-    var count = 40;
-    return this.http.get<KnowledgeObject[]>(apiUrl + '?page='+page+'&count='+count+'&filter[type]=knowledge_base&action=search');
+  getItems() {
+    return this.http.get<KnowledgeObject[]>(apiUrl + '?page=1&count=100&filter[type]=knowledge_base&action=search');
   }
 }

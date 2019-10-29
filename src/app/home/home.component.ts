@@ -12,14 +12,23 @@ import { KnowledgeObject } from '../models/knowledge-object';
 export class HomeComponent implements OnInit {
 
   items: Array<KnowledgeObject>;
-  p: number = 1;
+  config: any;
 
-  constructor(private knowledgeObjectsService: KnowledgeObjectsService) { }
+  constructor(private knowledgeObjectsService: KnowledgeObjectsService) {
+    this.config = {
+      itemsPerPage: 10,
+      currentPage: 1
+    };
+  }
 
   ngOnInit() {
-    this.knowledgeObjectsService.getItems(1).subscribe((data) => {
+    this.knowledgeObjectsService.getItems().subscribe((data) => {
       this.items = data.data;
     });
+  }
+
+  pageChanged(event) {
+    this.config.currentPage = event;
   }
 
 }

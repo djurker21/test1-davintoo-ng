@@ -1,5 +1,7 @@
-<p>home works!</p>
 <ul>
-    <li *ngFor="let item of items | paginate: { itemsPerPage: 10, currentPage: p }">{{item.id}}</li>
+    <li *ngFor="let item of items | paginate: config">
+        <p>{{item.id}}</p>
+        <p>{{item.body}}</p>
+    </li>
 </ul>
-<pagination-controls (pageChange)="p = $event"></pagination-controls>
+<pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
