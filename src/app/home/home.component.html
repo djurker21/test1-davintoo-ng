@@ -1,7 +1,12 @@
-<ul>
-    <li *ngFor="let item of items | paginate: config">
-        <p>{{item.id}}</p>
-        <p>{{item.body}}</p>
-    </li>
-</ul>
+<div *ngFor="let item of items | paginate: config">
+    <div class="row">
+        <div class="col-3">
+            <img class="img-thumbnail" src="https://qa.davintoo.com{{item.cover}}">
+        </div>
+        <div  class="col-9">
+            <p><a href="#">{{item.title}}</a></p>
+            <div [innerHtml]="item.body"></div>
+        </div>
+    </div>
+</div>
 <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>

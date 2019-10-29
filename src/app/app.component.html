@@ -1,4 +1,6 @@
-<nav *ngIf="currentUser">
-    <button (click)="logout()">Logout</button>
-</nav>
-<router-outlet></router-outlet>
+<div class="container">
+    <nav *ngIf="currentUser">
+        <button class="btn btn-danger" (click)="logout()">Logout</button>
+    </nav>
+    <router-outlet></router-outlet>
+</div>
