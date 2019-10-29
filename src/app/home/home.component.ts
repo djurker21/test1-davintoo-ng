@@ -12,11 +12,12 @@ import { KnowledgeObject } from '../models/knowledge-object';
 export class HomeComponent implements OnInit {
 
   items: Array<KnowledgeObject>;
+  p: number = 1;
 
   constructor(private knowledgeObjectsService: KnowledgeObjectsService) { }
 
   ngOnInit() {
-    this.knowledgeObjectsService.getItems().subscribe((data) => {
+    this.knowledgeObjectsService.getItems(1).subscribe((data) => {
       this.items = data.data;
     });
   }
