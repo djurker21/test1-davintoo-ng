@@ -15,14 +15,18 @@ import { first } from 'rxjs/operators';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  returnUrl: string
+  returnUrl: string;
 
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
     private route: ActivatedRoute,
     private router: Router
-  ) { }
+  ) { 
+    if (this.authService.currentUserValue) { 
+      this.router.navigate(['/']);
+    }
+  }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
