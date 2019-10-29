@@ -1,4 +1,4 @@
-<nav>
+<nav *ngIf="currentUser">
     <button (click)="logout()">Logout</button>
 </nav>
 <router-outlet></router-outlet>

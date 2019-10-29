@@ -4,6 +4,8 @@ import { AuthService } from './services/auth.service';
 
 import { Router } from '@angular/router';
 
+import { User } from './models/user';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,9 +13,14 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'test1-devitoo-ng';
+
+  currentUser: User;
+
   constructor(
     private authService: AuthService,
-    private router: Router) {}
+    private router: Router) {
+      this.authService.currentUser.subscribe(x => this.currentUser = x);
+    }
 
   logout() {
     this.authService.logout();
