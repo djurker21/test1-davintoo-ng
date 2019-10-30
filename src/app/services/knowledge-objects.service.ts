@@ -12,7 +12,7 @@ export class KnowledgeObjectsService {
 
   constructor(private http: HttpClient) {}
 
-  getItems() {
+  getItems():any {
     return this.http.get<KnowledgeObject[]>(apiUrl + '?page=1&count=100&filter[type]=knowledge_base&action=search');
   }
 }
